@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  vite-base:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    container_name: vite-base
+    volumes:
+      - ./:/app
+    ports:
+      - 5173:5173
+    tty: true

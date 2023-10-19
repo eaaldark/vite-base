@@ -1,0 +1,14 @@
+{
+  "main": {
+    "title": "Vite + React + Redux + Redux Toolkit + Redux Persist",
+    "subtitle": "Edit src/App.tsx and save to start coding",
+    "button": "Cambia a Español",
+    "emailPatternMessage": "The email does not have a valid format",
+    "emailRequiredMessage": "Email is required",
+    "passwordRequiredMessage": "Password is required",
+    "email": "Email",
+    "password": "Password",
+    "name": "First Name",
+    "send": "Send"
+  }
+}
