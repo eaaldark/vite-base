@@ -7,6 +7,7 @@ import { useState } from "react";
 import ClassicInput from "../component/forms/ClassicInput";
 import { emailValidation } from "../utils/regexExpresion";
 import { useNavigate } from "react-router-dom";
+import DateInput from "../component/forms/DateInput";
 
 export default function FormView() {
   const { t } = useTranslation("main");
@@ -17,6 +18,7 @@ export default function FormView() {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
@@ -56,6 +58,12 @@ export default function FormView() {
             placeholder={t("name")}
             register={register}
             type={"text"}
+          />
+          <DateInput
+            errors={errors}
+            id={"birthdate"}
+            placeholder={t("birthdate")}
+            control={control}
           />
           <ClassicInput
             errors={errors}
