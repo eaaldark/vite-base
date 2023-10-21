@@ -19,7 +19,7 @@ interface IClassicInput {
   control: Control<FieldValues, any>;
 }
 
-export default function ClassicInput({
+export default function DateInput({
   id,
   errors,
   required = false,
