@@ -72,6 +72,12 @@ export default function DateInput({
                     e.preventDefault();
                     setOpen(!open);
                   }}
+                  //Esta accion deberia funcionar perfectamente para quitar el aviso que sale en consola:
+                  // A component is changing an uncontrolled input to be controlled.
+                  //This is likely caused by the value changing from undefined to a defined value, which should not happen.
+                  //Pero debido a que la validacion del field.value al limpiarse el input deja de ser fecha, falla el web dejando de funcionar
+                  //se deja comentado si en futuro se encuentra solucion
+                  //selected={field.value ? new Date(field.value) : null}
                   onChange={(date) => {
                     field.onChange(
                       date ? date.toISOString().substring(0, 10) : null
