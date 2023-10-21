@@ -9,6 +9,7 @@
     "email": "Email",
     "password": "Password",
     "name": "First Name",
-    "send": "Send"
+    "send": "Send",
+    "birthdate": "Birthdate"
   }
 }

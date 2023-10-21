@@ -9,6 +9,7 @@
     "email": "Correo electronico",
     "password": "Contraseña",
     "name": "Nombre",
-    "send": "Enviar"
+    "send": "Enviar",
+    "birthdate": "Cumpleaños"
   }
 }
