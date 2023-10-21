@@ -28,6 +28,7 @@ export default function ClassicInput({
   requiredMessage = "",
   control,
 }: IClassicInput): JSX.Element {
+  const [open, setOpen] = useState<boolean>(false);
   const registerOptions: RegisterOptions = {
     required: {
       value: required,
@@ -44,7 +45,6 @@ export default function ClassicInput({
           rules={registerOptions}
           render={({ field }) => {
             // eslint-disable-next-line react-hooks/rules-of-hooks
-            const [open, setOpen] = useState<boolean>(false);
             return (
               <>
                 <input
@@ -56,8 +56,7 @@ export default function ClassicInput({
                   value={field.value}
                   className={`${classNameExtra} input-text peer`}
                   onChange={(e) => {
-                    if (e.target.value) field.value = e.target.value;
-                    field.onChange(e);
+                    field.onChange(e.target.value === "" ? "" : e.target.value);
                   }}
                   onClick={(e) => {
                     e.preventDefault();
@@ -74,8 +73,9 @@ export default function ClassicInput({
                     setOpen(!open);
                   }}
                   onChange={(date) => {
-                    if (date)
-                      field.onChange(date.toISOString().substring(0, 10));
+                    field.onChange(
+                      date ? date.toISOString().substring(0, 10) : null
+                    );
                   }}
                 />
               </>
