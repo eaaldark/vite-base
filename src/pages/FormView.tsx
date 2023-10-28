@@ -8,6 +8,7 @@ import ClassicInput from "../component/forms/ClassicInput";
 import { emailValidation } from "../utils/regexExpresion";
 import { useNavigate } from "react-router-dom";
 import DateInput from "../component/forms/DateInput";
+import ReactSelectCustom from "../component/forms/ReactSelectCustom";
 
 export default function FormView() {
   const { t } = useTranslation("main");
@@ -18,6 +19,7 @@ export default function FormView() {
     register,
     handleSubmit,
     reset,
+    watch,
     control,
     formState: { errors },
   } = useForm({ mode: "onChange" });
@@ -52,6 +54,29 @@ export default function FormView() {
           className="w-96 flex flex-col gap-8 text-black"
           onSubmit={handleSubmit(onSubmit)}
           onReset={reset}>
+          {
+            //ReactSelectCustom es un componente que contiene un select de la libreria react-select tiene funciones
+            //muy completas y tiene muchos manejos, Documentacion https://react-select.com/home
+          }
+          <ReactSelectCustom
+            errors={errors}
+            id={"options"}
+            label={"Dropdown"}
+            //options recibe las opcciones que seran seleccionadas su formato es un arreglo de objetos:
+            //[{value:"",label:""},{value:"",label:""},...]
+            //value seria el valor a tomar para enviar al a base de datos y label solo es visual para saber
+            //que elemento es que vamos a utilizar
+            options={[
+              { value: "1", label: "Option 1" },
+              { value: "2", label: "Option 2" },
+              { value: "3", label: "Option 3" },
+            ]}
+            control={control}
+            //showLabel utiliza a watch de react-hook-form para permitir el comportamiento del label en el select,
+            //lo que hace es verificar si hay datos en el input y si los hay solo devolvera false para ocultar el
+            //label, en caso contrario lo mostrara
+            showLabel={watch("options") ? false : true}
+          />
           <ClassicInput
             errors={errors}
             id={`name`}
@@ -85,7 +110,6 @@ export default function FormView() {
             required={true}
             requiredMessage={t("passwordRequiredMessage")}
           />
-
           <button type="submit" className="border-2">
             {t("send")}
           </button>
