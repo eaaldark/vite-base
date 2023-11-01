@@ -10,6 +10,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LayoutError from "./component/global/LayoutError.tsx";
 import CounterView from "./pages/CounterView.tsx";
+import Tabs from "./pages/Tabs.tsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/form",
         element: <FormView />,
+      },
+      {
+        path: "/tabs",
+        element: <Tabs />,
       },
     ],
   },

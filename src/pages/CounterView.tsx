@@ -12,7 +12,15 @@ export default function CounterView() {
     <>
       <div className="flex flex-row">
         <div>
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+          <img
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/tabs", { replace: true, relative: "route" });
+            }}
+            src={viteLogo}
+            className="logo"
+            alt="Vite logo"
+          />
         </div>
         <div>
           <img
