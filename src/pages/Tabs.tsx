@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import reactLogo from "/react.svg";
+import viteLogo from "/vite.svg";
 
 interface ITabs {
   tabTitle: string;
@@ -10,6 +13,8 @@ interface ITabs {
 }
 
 export default function Tabs() {
+  const navigate = useNavigate();
+
   const [tabItem, setTabItem] = useState<ITabs[]>([
     {
       index: 0,
@@ -27,7 +32,32 @@ export default function Tabs() {
 
   return (
     <>
+      <div className="flex flex-row">
+        <div>
+          <img
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/tabs", { replace: true, relative: "route" });
+            }}
+            src={viteLogo}
+            className="logo"
+            alt="Vite logo"
+          />
+        </div>
+        <div>
+          <img
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/", { replace: true, relative: "route" });
+            }}
+            src={reactLogo}
+            className="logo react"
+            alt="React logo"
+          />
+        </div>
+      </div>
       <button
+        className="border-2 px-4 py-2"
         onClick={() => {
           setTabItem((item: ITabs[]) => {
             const index: number = item.length + 1;
