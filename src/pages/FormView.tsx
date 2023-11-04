@@ -8,6 +8,7 @@ import ClassicInput from "../component/forms/ClassicInput";
 import { emailValidation } from "../utils/regexExpresion";
 import { useNavigate } from "react-router-dom";
 import DateInput from "../component/forms/DateInput";
+// import ClassicSelect from "../component/forms/ClassicSelect";
 import ReactSelectCustom from "../component/forms/ReactSelectCustom";
 
 export default function FormView() {
@@ -25,6 +26,8 @@ export default function FormView() {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = (data: unknown) => {
+    console.log(data);
+
     setData(data);
   };
 
@@ -85,6 +88,13 @@ export default function FormView() {
             //label, en caso contrario lo mostrara
             showLabel={watch("options") ? false : true}
           />
+          {/* <ClassicSelect
+            id={"select"}
+            errors={errors}
+            placeholder={"Select an option"}
+            register={register}
+            data={[{ label: "Inca", value: { id: 1, value: "inca" } }]}
+          /> */}
           <ClassicInput
             errors={errors}
             id={`name`}
