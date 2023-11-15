@@ -8,8 +8,8 @@ import ClassicInput from "../component/forms/ClassicInput";
 import { emailValidation } from "../utils/regexExpresion";
 import { useNavigate } from "react-router-dom";
 import DateInput from "../component/forms/DateInput";
-// import ClassicSelect from "../component/forms/ClassicSelect";
-import ReactSelectCustom from "../component/forms/ReactSelectCustom";
+import CustomSelect from "../component/forms/CustomSelect";
+// import ReactSelectCustom from "../component/forms/ReactSelectCustom";
 
 export default function FormView() {
   const { t } = useTranslation("main");
@@ -69,7 +69,7 @@ export default function FormView() {
             //ReactSelectCustom es un componente que contiene un select de la libreria react-select tiene funciones
             //muy completas y tiene muchos manejos, Documentacion https://react-select.com/home
           }
-          <ReactSelectCustom
+          {/* <ReactSelectCustom
             errors={errors}
             id={"options"}
             label={"Dropdown"}
@@ -87,14 +87,20 @@ export default function FormView() {
             //lo que hace es verificar si hay datos en el input y si los hay solo devolvera false para ocultar el
             //label, en caso contrario lo mostrara
             showLabel={watch("options") ? false : true}
-          />
-          {/* <ClassicSelect
+          /> */}
+          <CustomSelect
             id={"select"}
             errors={errors}
+            control={control}
+            classNameExtra={"h-10 w-64 2s:w-80"}
             placeholder={"Select an option"}
             register={register}
-            data={[{ label: "Inca", value: { id: 1, value: "inca" } }]}
-          /> */}
+            data={[
+              { label: "Seleccion 1", value: { id: 1, name: "SubObjeto 1" } },
+              { label: "Seleccion 2", value: { id: 2, name: "SubObjeto 2" } },
+              { label: "Seleccion 3", value: { id: 3, name: "SubObjeto 3" } },
+            ]}
+          />
           <ClassicInput
             errors={errors}
             id={`name`}
